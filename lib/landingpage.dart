@@ -1,4 +1,5 @@
 import 'package:expensetracker/balancecard.dart';
+import 'package:expensetracker/buttons.dart';
 import 'package:expensetracker/month.dart';
 import 'package:expensetracker/transactions.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       backgroundColor: Color(0xFF2b2b2b),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+        padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
         child: Column(
           children: [
             SizedBox(height: 25),
@@ -38,18 +39,18 @@ class _LandingPageState extends State<LandingPage> {
             
             // transactions list
             Transactions(
-              transactionName: "hi",
-              date: "w",
-              money: "ww",
-              expenseOrIncome: "income",
+              transactionName: "Uber Auto",
+              date: "15th July",
+              money: "120",
+              expenseOrIncome: "expense",
             ),
+
             SizedBox(height: 10),
 
+            Spacer(),
             
             // buttons to add stuff
-            Container(
-              height: 100
-            ),
+            Buttons(),
           ],
         ),
       )

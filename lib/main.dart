@@ -1,7 +1,7 @@
 import 'package:expensetracker/landingpage.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() {  
   runApp(const MyApp());
 }
 

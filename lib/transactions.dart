@@ -78,21 +78,14 @@ class Transactions extends StatelessWidget {
                   ),
                 ],
               ),
-              // Text(
-              //   money,
-              //   style: TextStyle(
-              //     color: Color(0xFFDB5375),
-              //     fontSize: 15,
-              //     fontWeight: FontWeight.w600,
-              //   ),
-              // ),
+
               Text(
-                (expenseOrIncome == 'expense' ? '-' : '+') + '\$' + money,
+                (expenseOrIncome == 'expense' ? '-' : '+') + '₹' + money,
                 style: TextStyle(
-                  //fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
                   color:
-                      expenseOrIncome == 'expense' ? Colors.red : Colors.green,
+                      expenseOrIncome == 'expense' ? Color(0xFFDB5375) : Color(0xFF6BBF59),
                 )
               )
             ],  
