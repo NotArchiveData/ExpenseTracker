@@ -1,4 +1,5 @@
 import 'package:expensetracker/balancecard.dart';
+import 'package:expensetracker/month.dart';
 import 'package:flutter/material.dart';
 
 class LandingPage extends StatefulWidget {
@@ -21,8 +22,15 @@ class _LandingPageState extends State<LandingPage> {
             color: Colors.amber,
           ),
 
+          Month(),
+
+          SizedBox(height: 25),
+          
           // balance card
           BalanceCard(),
+
+          SizedBox(height: 25),
+
 
           // transactions list
           Expanded(
