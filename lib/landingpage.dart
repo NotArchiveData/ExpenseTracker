@@ -37,7 +37,14 @@ class _LandingPageState extends State<LandingPage> {
             SizedBox(height: 40),
             
             // transactions list
-            Transactions(),
+            Transactions(
+              transactionName: "hi",
+              date: "w",
+              money: "ww",
+              expenseOrIncome: "income",
+            ),
+            SizedBox(height: 10),
+
             
             // buttons to add stuff
             Container(

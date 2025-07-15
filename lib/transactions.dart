@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Transactions extends StatelessWidget {
-  const Transactions({super.key});
+  final String transactionName;
+  final String date;
+  final String money;
+  final String expenseOrIncome;
+
+  Transactions({
+    required this.transactionName,
+    required this.date,
+    required this.money,
+    required this.expenseOrIncome
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +22,6 @@ class Transactions extends StatelessWidget {
         border: Border.all(
           color: Color(0xFF949494),
         ),
-        // color: Colors.white,
         color: Color(0xFF2b2b2b),
       ),
         child: Padding(
@@ -20,48 +29,77 @@ class Transactions extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Row(
                 children: [
-                  Text(
-                    "Tomatoes, Carrots..",
-                    style: TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    textHeightBehavior: TextHeightBehavior(
-                        applyHeightToFirstAscent: false,
-                        applyHeightToLastDescent: false,
+                  Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle, color: Colors.grey[500]),
+                    child: Center(
+                      child: Icon(
+                        Icons.attach_money_outlined,
+                        color: Colors.white,
                       ),
+                    ),
                   ),
 
-                  Text(
-                    "10th July",
-                    style: TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    textHeightBehavior: TextHeightBehavior(
-                        applyHeightToFirstAscent: false,
-                        applyHeightToLastDescent: false,
+                  SizedBox(width: 15),
+                  
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        transactionName,
+                        style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textHeightBehavior: TextHeightBehavior(
+                            applyHeightToFirstAscent: false,
+                            applyHeightToLastDescent: false,
+                          ),
                       ),
+                  
+                      Text(
+                        date,
+                        style: TextStyle(
+                          color: Color(0xFFFFFFFF),
+                          fontSize: 10,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        textHeightBehavior: TextHeightBehavior(
+                            applyHeightToFirstAscent: false,
+                            applyHeightToLastDescent: false,
+                          ),
+                      ),
+                    ],
                   ),
                 ],
               ),
+              // Text(
+              //   money,
+              //   style: TextStyle(
+              //     color: Color(0xFFDB5375),
+              //     fontSize: 15,
+              //     fontWeight: FontWeight.w600,
+              //   ),
+              // ),
               Text(
-                "-₹40",
+                (expenseOrIncome == 'expense' ? '-' : '+') + '\$' + money,
                 style: TextStyle(
-                  color: Color(0xFFFFFFFF),
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
+                  //fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color:
+                      expenseOrIncome == 'expense' ? Colors.red : Colors.green,
+                )
+              )
+            ],  
           ),
         )
-      );
+
+    );
+    
   }
 }
