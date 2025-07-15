@@ -28,15 +28,33 @@ class _LandingPageState extends State<LandingPage> {
               color: Color(0xFF2b2b2b),
             ),
             
-            Month(),
+            Month(
+              month: "July",
+              year: "2025"
+            ),
             
             SizedBox(height: 25),
             
             // balance card
             BalanceCard(),
             
-            SizedBox(height: 40),
-            
+            SizedBox(height: 60),
+
+            Text(
+              "Transactions",
+              style: TextStyle(
+                color: Color(0xFFFFFFFF),
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+              ),
+              textHeightBehavior: TextHeightBehavior(
+                  applyHeightToFirstAscent: false,
+                  applyHeightToLastDescent: false,
+                ),
+            ),
+
+            SizedBox(height: 15),
+              
             // transactions list
             Transactions(
               transactionName: "Uber Auto",
@@ -46,6 +64,13 @@ class _LandingPageState extends State<LandingPage> {
             ),
 
             SizedBox(height: 10),
+
+            Transactions(
+              transactionName: "Uber Auto",
+              date: "15th July",
+              money: "120",
+              expenseOrIncome: "expense",
+            ),
 
             Spacer(),
             

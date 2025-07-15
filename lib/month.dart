@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Month extends StatelessWidget {
-  const Month({super.key});
+  final String month;
+  final String year;
+
+  Month({
+    required this.month,
+    required this.year,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +22,12 @@ class Month extends StatelessWidget {
               style: TextStyle(
                 color: Color(0xFF949494),
                 fontSize: 12,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w400,
                 ),
             ),
           
             Text(
-              "July 2025",
+              month + " " + year,
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 22,
@@ -36,7 +42,17 @@ class Month extends StatelessWidget {
         ),
     
         // place icon here
-        Text(" "),
+        Container(
+          padding: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+              shape: BoxShape.circle, color: Colors.grey[500]),
+          child: Center(
+            child: Icon(
+              Icons.attach_money_outlined,
+              color: Colors.white,
+            ),
+          ),
+        ),
       ],
     );
   }
