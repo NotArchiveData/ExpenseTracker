@@ -1,5 +1,7 @@
 # See https://www.dartlang.org/guides/libraries/private-files
 
+lib/gsheets_api.dart
+
 # Files and directories created by pub
 .dart_tool/
 .packages

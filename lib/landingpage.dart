@@ -66,10 +66,10 @@ class _LandingPageState extends State<LandingPage> {
             SizedBox(height: 10),
 
             Transactions(
-              transactionName: "Uber Auto",
-              date: "15th July",
-              money: "120",
-              expenseOrIncome: "expense",
+              transactionName: "Allowance",
+              date: "14th July",
+              money: "10,000",
+              expenseOrIncome: "income",
             ),
 
             Spacer(),
