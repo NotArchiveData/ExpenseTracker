@@ -1,6 +1,6 @@
 # expensetracker
 
-Remember to add "<uses-permission android:name="android.permission.INTERNET" />" this line of code to ./android/app/src/main/AndroidManifest.xml!!!!
+<!-- Remember to add "<uses-permission android:name="android.permission.INTERNET" />" this line of code to ./android/app/src/main/AndroidManifest.xml!!!! -->
 
 ## Getting Started
 
