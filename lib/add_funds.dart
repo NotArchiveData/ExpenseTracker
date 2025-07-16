@@ -11,7 +11,6 @@ void addText() async {
     // append all values into local database
     addFunds.put(1, amount.text);
     addFunds.put(2, from.text);
-    print("i did attt");
 
     // clear text field
     amount.clear();

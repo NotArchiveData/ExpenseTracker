@@ -1,8 +1,14 @@
+import 'dart:async';
+
 import 'package:expensetracker/balancecard.dart';
 import 'package:expensetracker/buttons.dart';
 import 'package:expensetracker/month.dart';
 import 'package:expensetracker/transactions.dart';
 import 'package:flutter/material.dart';
+
+// gsheets
+import 'package:gsheets/gsheets.dart';
+import 'package:expensetracker/gsheets_api.dart';
 
 class LandingPage extends StatefulWidget {
   const LandingPage({super.key});
@@ -12,8 +18,27 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+
+  // wait for data to be fetched from gsheets
+  bool timerHasStarted = false;
+  void startLoading() {
+    timerHasStarted = true;
+    Timer.periodic(Duration(seconds: 1), (timer) {
+      if (GoogleSheetsApi.loading == false) {
+        setState(() {});
+        timer.cancel();
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    // start loading until the data comes
+    if (GoogleSheetsApi.loading == true && timerHasStarted == false) {
+      startLoading();
+    }
+
+    // main landing page
     return Scaffold(
       backgroundColor: Color(0xFF2b2b2b),
       body: Padding(
@@ -52,25 +77,48 @@ class _LandingPageState extends State<LandingPage> {
                   applyHeightToLastDescent: false,
                 ),
             ),
-
-            SizedBox(height: 15),
               
             // transactions list
-            Transactions(
-              transactionName: "Uber Auto",
-              date: "15th July",
-              money: "120",
-              expenseOrIncome: "expense",
+            Expanded(
+              child: Container(
+                child: Center(
+                  child: Column(
+                    children: [
+                      SizedBox(height: 20,),
+
+                      Expanded(
+                        child: ListView.builder(
+                          itemCount: GoogleSheetsApi.currentTransactions.length,
+                          itemBuilder: (context, index) {
+                          return Transactions(
+                            transactionName: GoogleSheetsApi.currentTransactions[index][0], 
+                            date: "16th July", 
+                            money: GoogleSheetsApi.currentTransactions[index][1], 
+                            expenseOrIncome: GoogleSheetsApi.currentTransactions[index][2]
+                          );
+                        })
+                        )
+                      
+                      // Transactions(
+                      //   transactionName: "Uber Auto",
+                      //   date: "15th July",
+                      //   money: "120",
+                      //   expenseOrIncome: "expense",
+                      // ),
+                    ],
+                  ),
+                ),
+              ),
             ),
 
             SizedBox(height: 10),
 
-            Transactions(
-              transactionName: "Allowance",
-              date: "14th July",
-              money: "10,000",
-              expenseOrIncome: "income",
-            ),
+            // Transactions(
+            //   transactionName: "Allowance",
+            //   date: "14th July",
+            //   money: "10,000",
+            //   expenseOrIncome: "income",
+            // ),
 
             Spacer(),
             
