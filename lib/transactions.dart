@@ -18,9 +18,9 @@ class Transactions extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 60,
+          height: 70,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(15),
             color: Color(0xFF3C3C3C),
           ),
             child: Padding(
@@ -31,9 +31,15 @@ class Transactions extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        padding: EdgeInsets.all(5),
+                        width: 8,
+                        height: 40,
                         decoration: BoxDecoration(
-                            shape: BoxShape.circle, color: expenseOrIncome == 'expense' ? Color(0xFFDB5375) : Color(0xFF6BBF59),),
+                            color: expenseOrIncome == 'expense' ? Color(0xFFDB5375) : Color(0xFF6BBF59),
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(5),
+                              bottomLeft: Radius.circular(5),
+                            )
+                        ),
                       ),
         
                       SizedBox(width: 15),
@@ -58,8 +64,8 @@ class Transactions extends StatelessWidget {
                           Text(
                             date,
                             style: TextStyle(
-                              color: Color(0xFFFFFFFF),
-                              fontSize: 10,
+                              color: Color(0xFF949494),
+                              fontSize: 8,
                               fontWeight: FontWeight.w400,
                             ),
                             textHeightBehavior: TextHeightBehavior(

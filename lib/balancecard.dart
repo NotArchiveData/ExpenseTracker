@@ -8,17 +8,10 @@ class BalanceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 110,
+      height: 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 5.0,
-            offset: Offset(0, 0),
-            color: Colors.white,
-          )
-        ]
       ),
         child: Center(
           child: Column(
@@ -33,8 +26,36 @@ class BalanceCard extends StatelessWidget {
                   applyHeightToLastDescent: false,
                 ),
               ),
-    
-              Text("balance remaining", style: TextStyle(color: Color(0xFF949494), fontSize: 12, fontWeight: FontWeight.w600),)
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(80, 0, 8, 0),
+                      height: 1,
+                      color: Color(0xFFBDBDBD),
+                    ),
+                  ),
+
+                  Text(
+                    "balance",
+                    style: TextStyle(
+                      color: Color(0xFF949494),
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+
+                  Expanded(
+                    child: Container(
+                      margin: const EdgeInsets.fromLTRB(8, 0, 80, 0),
+                      height: 1,
+                      color: Color(0xFFBDBDBD),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

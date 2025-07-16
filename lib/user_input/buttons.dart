@@ -12,19 +12,16 @@ class Buttons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         ElevatedButton(
-          style: ElevatedButton.styleFrom(    
-            padding: EdgeInsets.fromLTRB(50, 10, 50, 10),        
-            // minimumSize: Size(152, 51),
-            elevation: 10,
-            shadowColor: Colors.black.withValues(), // Shadow color & opacity
+          style: ElevatedButton.styleFrom(  
+            fixedSize: Size(0, 112),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20), // Optional: Rounded look
+              borderRadius: BorderRadius.circular(15),
             ),
-            backgroundColor: Color(0xFF2B2B2B)
+            backgroundColor: Color(0xFFFFFFFF)
           ),
 
           onPressed: () {
@@ -32,10 +29,10 @@ class Buttons extends StatelessWidget {
           },
 
           child: Text(
-            "+₹",
+            "➕",
             style: TextStyle(
               color: Color(0xFF6BBF59),
-              fontSize: 22,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
             textHeightBehavior: TextHeightBehavior(
@@ -45,27 +42,26 @@ class Buttons extends StatelessWidget {
           ),
         ),
 
-        SizedBox(width:30),
+        SizedBox(height:20),
         
         ElevatedButton(
-          style: ElevatedButton.styleFrom( 
-            padding: EdgeInsets.fromLTRB(50, 10, 50, 10),               
-            // minimumSize: Size(152, 51),
-            elevation: 10,
-            shadowColor: Colors.black.withValues(), // Shadow color & opacity
+          style: ElevatedButton.styleFrom(  
+            fixedSize: Size(0, 112),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20), // Optional: Rounded look
+              borderRadius: BorderRadius.circular(15),
             ),
-            backgroundColor: Color(0xFF2B2B2B)
+            backgroundColor: Color(0xFFFFFFFF)
           ),
+
           onPressed: (){
             showSubtractFundsDialog(context);
           },
+
           child: Text(
-            "-₹",
+            "😭",
             style: TextStyle(
-              color: Color(0xFFFDB5375),
-              fontSize: 22,
+              color: Color(0xFFDB5375),
+              fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
             textHeightBehavior: TextHeightBehavior(

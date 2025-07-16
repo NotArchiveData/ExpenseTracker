@@ -43,10 +43,9 @@ class _LandingPageState extends State<LandingPage> {
     return Scaffold(
       backgroundColor: Color(0xFF2b2b2b),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 0, 30, 30),
+        padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Column(
           children: [
-            SizedBox(height: 25),
             
             Container(
               height: 50,
@@ -56,27 +55,13 @@ class _LandingPageState extends State<LandingPage> {
             // month and icon button 
             Month(),
             
-            SizedBox(height: 25),
+            SizedBox(height: 20),
             
             // balance card
             BalanceCard(),
             
-            SizedBox(height: 60),
 
-            Text(
-              "Transactions",
-              style: TextStyle(
-                color: Color(0xFFFFFFFF),
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-              textHeightBehavior: TextHeightBehavior(
-                  applyHeightToFirstAscent: false,
-                  applyHeightToLastDescent: false,
-                ),
-            ),
-
-            SizedBox(height: 18),
+            SizedBox(height: 20),
               
             // transactions list
             Expanded(
@@ -89,7 +74,7 @@ class _LandingPageState extends State<LandingPage> {
                   context: context,
                   removeTop: true,
                   child: GoogleSheetsApi.loading == true ? LoadingCircle() : ListView.builder(
-                    reverse: true,
+                    reverse: false,
                     itemCount: GoogleSheetsApi.currentTransactions.length,
                     itemBuilder: (context, index) {
                     return Transactions(
@@ -103,10 +88,27 @@ class _LandingPageState extends State<LandingPage> {
               )
             ),
 
-            SizedBox(height: 30),
+            SizedBox(height: 20),
             
-            // buttons to add stuff
-            Buttons(),
+            // carousel and buttons
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  height: 250,
+                  width: 230,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 250,
+                  child: Buttons()
+                ),
+              ],
+            ),
           ],
         ),
       )
