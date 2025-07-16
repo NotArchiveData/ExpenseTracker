@@ -77,50 +77,28 @@ class _LandingPageState extends State<LandingPage> {
                   applyHeightToLastDescent: false,
                 ),
             ),
+
+            SizedBox(height: 18),
               
             // transactions list
             Expanded(
-              child: Container(
-                child: Center(
-                  child: Column(
-                    children: [
-                      SizedBox(height: 20,),
-
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: GoogleSheetsApi.currentTransactions.length,
-                          itemBuilder: (context, index) {
-                          return Transactions(
-                            transactionName: GoogleSheetsApi.currentTransactions[index][0], 
-                            date: "16th July", 
-                            money: GoogleSheetsApi.currentTransactions[index][1], 
-                            expenseOrIncome: GoogleSheetsApi.currentTransactions[index][2]
-                          );
-                        })
-                        )
-                      
-                      // Transactions(
-                      //   transactionName: "Uber Auto",
-                      //   date: "15th July",
-                      //   money: "120",
-                      //   expenseOrIncome: "expense",
-                      // ),
-                    ],
-                  ),
-                ),
-              ),
+              child: MediaQuery.removePadding(
+                context: context,
+                removeTop: true,
+                child: ListView.builder(
+                  itemCount: GoogleSheetsApi.currentTransactions.length,
+                  itemBuilder: (context, index) {
+                  return Transactions(
+                    transactionName: GoogleSheetsApi.currentTransactions[index][0], 
+                    date: "16th July", 
+                    money: GoogleSheetsApi.currentTransactions[index][1], 
+                    expenseOrIncome: GoogleSheetsApi.currentTransactions[index][2]
+                  );
+                }),
+              )
             ),
 
             SizedBox(height: 10),
-
-            // Transactions(
-            //   transactionName: "Allowance",
-            //   date: "14th July",
-            //   money: "10,000",
-            //   expenseOrIncome: "income",
-            // ),
-
-            Spacer(),
             
             // buttons to add stuff
             Buttons(),
