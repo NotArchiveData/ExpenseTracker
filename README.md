@@ -11,6 +11,7 @@ Functions
 - last item in the list of transactions will be an option that takes you directly to the spreadsheet!!
 - pressing a button immediately takes you to type
 - icon on the top right can be voice input lol
+- going into negatives is illegal?
 
 UI
 - + and - buttons are weird
