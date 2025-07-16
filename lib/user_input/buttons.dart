@@ -16,8 +16,9 @@ class Buttons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ElevatedButton(
-          style: ElevatedButton.styleFrom(            
-            minimumSize: Size(152, 51),
+          style: ElevatedButton.styleFrom(    
+            padding: EdgeInsets.fromLTRB(50, 10, 50, 10),        
+            // minimumSize: Size(152, 51),
             elevation: 10,
             shadowColor: Colors.black.withValues(), // Shadow color & opacity
             shape: RoundedRectangleBorder(
@@ -47,8 +48,9 @@ class Buttons extends StatelessWidget {
         SizedBox(width:30),
         
         ElevatedButton(
-          style: ElevatedButton.styleFrom(            
-            minimumSize: Size(152, 51),
+          style: ElevatedButton.styleFrom( 
+            padding: EdgeInsets.fromLTRB(50, 10, 50, 10),               
+            // minimumSize: Size(152, 51),
             elevation: 10,
             shadowColor: Colors.black.withValues(), // Shadow color & opacity
             shape: RoundedRectangleBorder(

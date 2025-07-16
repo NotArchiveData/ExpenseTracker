@@ -80,19 +80,26 @@ class _LandingPageState extends State<LandingPage> {
               
             // transactions list
             Expanded(
-              child: MediaQuery.removePadding(
-                context: context,
-                removeTop: true,
-                child: GoogleSheetsApi.loading == true ? LoadingCircle() : ListView.builder(
-                  itemCount: GoogleSheetsApi.currentTransactions.length,
-                  itemBuilder: (context, index) {
-                  return Transactions(
-                    date: GoogleSheetsApi.currentTransactions[index][0], 
-                    transactionName: GoogleSheetsApi.currentTransactions[index][1], 
-                    money: GoogleSheetsApi.currentTransactions[index][2], 
-                    expenseOrIncome: GoogleSheetsApi.currentTransactions[index][3]
-                  );
-                }),
+              child: RefreshIndicator(
+                onRefresh: () async {
+                  await GoogleSheetsApi.loadTransactions();
+                  setState(() {});
+                },
+                child: MediaQuery.removePadding(
+                  context: context,
+                  removeTop: true,
+                  child: GoogleSheetsApi.loading == true ? LoadingCircle() : ListView.builder(
+                    reverse: true,
+                    itemCount: GoogleSheetsApi.currentTransactions.length,
+                    itemBuilder: (context, index) {
+                    return Transactions(
+                      date: GoogleSheetsApi.currentTransactions[index][0], 
+                      transactionName: GoogleSheetsApi.currentTransactions[index][1], 
+                      money: GoogleSheetsApi.currentTransactions[index][2], 
+                      expenseOrIncome: GoogleSheetsApi.currentTransactions[index][3]
+                    );
+                  }),
+                ),
               )
             ),
 
