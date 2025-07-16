@@ -8,13 +8,13 @@ class BalanceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 93,
+      height: 110,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            blurRadius: 8.0,
+            blurRadius: 5.0,
             offset: Offset(0, 0),
             color: Colors.white,
           )

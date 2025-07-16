@@ -32,7 +32,7 @@ class Month extends StatelessWidget {
               getMonthYear(),
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
-                fontSize: 22,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
                 ),
               textHeightBehavior: TextHeightBehavior(

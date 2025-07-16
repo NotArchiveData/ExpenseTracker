@@ -18,13 +18,10 @@ class Transactions extends StatelessWidget {
     return Column(
       children: [
         Container(
-          height: 58,
+          height: 60,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: Color(0xFF949494),
-            ),
-            color: Color(0xFF2b2b2b),
+            color: Color(0xFF3C3C3C),
           ),
             child: Padding(
               padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),

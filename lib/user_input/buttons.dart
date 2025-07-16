@@ -18,7 +18,12 @@ class Buttons extends StatelessWidget {
         ElevatedButton(
           style: ElevatedButton.styleFrom(            
             minimumSize: Size(152, 51),
-            backgroundColor: Color(0xFF7E8987)
+            elevation: 10,
+            shadowColor: Colors.black.withValues(), // Shadow color & opacity
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20), // Optional: Rounded look
+            ),
+            backgroundColor: Color(0xFF2B2B2B)
           ),
 
           onPressed: () {
@@ -26,9 +31,9 @@ class Buttons extends StatelessWidget {
           },
 
           child: Text(
-            "+",
+            "+₹",
             style: TextStyle(
-              color: Color(0xFFFFFFFF),
+              color: Color(0xFF6BBF59),
               fontSize: 22,
               fontWeight: FontWeight.w600,
             ),
@@ -44,21 +49,25 @@ class Buttons extends StatelessWidget {
         ElevatedButton(
           style: ElevatedButton.styleFrom(            
             minimumSize: Size(152, 51),
-            backgroundColor: Color(0xFF7E8987)
+            elevation: 10,
+            shadowColor: Colors.black.withValues(), // Shadow color & opacity
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20), // Optional: Rounded look
+            ),
+            backgroundColor: Color(0xFF2B2B2B)
           ),
           onPressed: (){
             showSubtractFundsDialog(context);
           },
           child: Text(
-            "-",
+            "-₹",
             style: TextStyle(
-              color: Color(0xFFFFFFFF),
+              color: Color(0xFFFDB5375),
               fontSize: 22,
               fontWeight: FontWeight.w600,
             ),
             textHeightBehavior: TextHeightBehavior(
                 applyHeightToFirstAscent: false,
-                // applyHeightToLastDescent: false,
               ),
           ),
         ),

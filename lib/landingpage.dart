@@ -48,12 +48,12 @@ class _LandingPageState extends State<LandingPage> {
           children: [
             SizedBox(height: 25),
             
-            // month and button 
             Container(
               height: 50,
               color: Color(0xFF2b2b2b),
             ),
             
+            // month and icon button 
             Month(),
             
             SizedBox(height: 25),
@@ -67,7 +67,7 @@ class _LandingPageState extends State<LandingPage> {
               "Transactions",
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
-                fontSize: 22,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
               textHeightBehavior: TextHeightBehavior(
@@ -96,7 +96,7 @@ class _LandingPageState extends State<LandingPage> {
               )
             ),
 
-            SizedBox(height: 10),
+            SizedBox(height: 30),
             
             // buttons to add stuff
             Buttons(),

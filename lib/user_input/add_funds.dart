@@ -146,7 +146,6 @@ Future<void> showAddFundsDialog(BuildContext context) async {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          // Handle data submission here
                           Navigator.of(context).pop();
                           addText();
                           enterTransaction();
