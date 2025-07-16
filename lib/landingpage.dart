@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:expensetracker/balancecard.dart';
 import 'package:expensetracker/buttons.dart';
+import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
 import 'package:expensetracker/transactions.dart';
 import 'package:flutter/material.dart';
@@ -85,14 +86,14 @@ class _LandingPageState extends State<LandingPage> {
               child: MediaQuery.removePadding(
                 context: context,
                 removeTop: true,
-                child: ListView.builder(
+                child: GoogleSheetsApi.loading == true ? LoadingCircle() : ListView.builder(
                   itemCount: GoogleSheetsApi.currentTransactions.length,
                   itemBuilder: (context, index) {
                   return Transactions(
-                    transactionName: GoogleSheetsApi.currentTransactions[index][0], 
-                    date: "16th July", 
-                    money: GoogleSheetsApi.currentTransactions[index][1], 
-                    expenseOrIncome: GoogleSheetsApi.currentTransactions[index][2]
+                    date: GoogleSheetsApi.currentTransactions[index][0], 
+                    transactionName: GoogleSheetsApi.currentTransactions[index][1], 
+                    money: GoogleSheetsApi.currentTransactions[index][2], 
+                    expenseOrIncome: GoogleSheetsApi.currentTransactions[index][3]
                   );
                 }),
               )

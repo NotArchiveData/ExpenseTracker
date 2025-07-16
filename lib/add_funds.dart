@@ -1,12 +1,14 @@
+import 'package:expensetracker/gsheets_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-// Add this at the top of the file if you need to pass controllers from outside
+// stuff to get access to inputs
 final TextEditingController amount = TextEditingController();
 final TextEditingController from = TextEditingController();
 final addFunds = Hive.box("+");
 
+// enter new transaction into local storage
 void addText() async {
     // append all values into local database
     addFunds.put(1, amount.text);
@@ -15,6 +17,15 @@ void addText() async {
     // clear text field
     amount.clear();
     from.clear();
+}
+
+// enter new transaction into gsheets
+void enterTransaction() {
+  GoogleSheetsApi.insertFund(
+    addFunds.get(1),
+    addFunds.get(2),
+    true,
+  );
 }
 
 Future<void> showAddFundsDialog(BuildContext context) async {
@@ -138,6 +149,7 @@ Future<void> showAddFundsDialog(BuildContext context) async {
                           // Handle data submission here
                           Navigator.of(context).pop();
                           addText();
+                          enterTransaction();
                           print(addFunds.get(1));
                           print(addFunds.get(2));
                         },
