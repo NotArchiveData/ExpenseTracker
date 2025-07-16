@@ -34,13 +34,13 @@ class Transactions extends StatelessWidget {
                   Container(
                     padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle, color: Colors.grey[500]),
-                    child: Center(
-                      child: Icon(
-                        Icons.attach_money_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
+                        shape: BoxShape.circle, color: expenseOrIncome == 'expense' ? Color(0xFFDB5375) : Color(0xFF6BBF59),),
+                    // child: Center(
+                    //   child: Icon(
+                    //     Icons.attach_money_outlined,
+                    //     color: Colors.white,
+                    //   ),
+                    // ),
                   ),
 
                   SizedBox(width: 15),
