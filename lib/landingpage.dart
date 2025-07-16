@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:expensetracker/balancecard.dart';
+import 'package:expensetracker/carousel.dart';
 import 'package:expensetracker/user_input/buttons.dart';
 import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
@@ -97,10 +98,7 @@ class _LandingPageState extends State<LandingPage> {
                 Container(
                   height: 250,
                   width: 230,
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(10),
-                  ),
+                  child: MyCarousel(),
                 ),
 
                 SizedBox(
