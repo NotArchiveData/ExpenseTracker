@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+
+// get month
+String getMonthYear() {
+  DateTime now = DateTime.now();
+  return DateFormat('MMMM yyyy').format(now);
+}
+
 
 class Month extends StatelessWidget {
-  final String month;
-  final String year;
-
-  Month({
-    required this.month,
-    required this.year,
-  });
+  const Month({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class Month extends StatelessWidget {
             ),
           
             Text(
-              month + " " + year,
+              getMonthYear(),
               style: TextStyle(
                 color: Color(0xFFFFFFFF),
                 fontSize: 22,

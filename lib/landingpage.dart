@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:expensetracker/balancecard.dart';
-import 'package:expensetracker/buttons.dart';
+import 'package:expensetracker/user_input/buttons.dart';
 import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
 import 'package:expensetracker/transactions.dart';
@@ -54,10 +54,7 @@ class _LandingPageState extends State<LandingPage> {
               color: Color(0xFF2b2b2b),
             ),
             
-            Month(
-              month: "July",
-              year: "2025"
-            ),
+            Month(),
             
             SizedBox(height: 25),
             

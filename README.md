@@ -2,6 +2,17 @@
 
 <!-- Remember to add "<uses-permission android:name="android.permission.INTERNET" />" this line of code to ./android/app/src/main/AndroidManifest.xml!!!! -->
 
+to do
+
+Functions
+- add a reload, drag from top to refresh transactions
+
+UI
+- + and - buttons are weird
+- text limit for entries
+- when there are lots of entries, the gap between the end and the buttons is too little
+- when the entry list goes out of the box, make a cool fade or something visual rather than just abruptly cutting it off
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.

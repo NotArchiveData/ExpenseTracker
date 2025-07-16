@@ -1,4 +1,5 @@
-import 'package:expensetracker/add_funds.dart';
+import 'package:expensetracker/user_input/add_funds.dart';
+import 'package:expensetracker/user_input/subtract_funds.dart';
 import 'package:flutter/material.dart';
 
 // text editing fields to get access to what i typed
@@ -45,7 +46,9 @@ class Buttons extends StatelessWidget {
             minimumSize: Size(152, 51),
             backgroundColor: Color(0xFF7E8987)
           ),
-          onPressed: (){},
+          onPressed: (){
+            showSubtractFundsDialog(context);
+          },
           child: Text(
             "-",
             style: TextStyle(
