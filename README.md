@@ -4,8 +4,11 @@
 
 to do
 
+most important with the new fastening of the app:
+- adding transactions adds 2 to the UI. on the spreadsheet, only one. changes when you refresh
+example, i added an expense of 2000. i had 4000 showing balance. when i added, two duplicate entries were made, and balance showed -4000. on refresh it showed 2000. so, yeah.
+
 Functions
-- add a reload, drag from top to refresh transactions
 - undo last transaction
 - swipe to reveal delete button and then delete transactions ( confirmation on it )
 - last item in the list of transactions will be an option that takes you directly to the spreadsheet!!
@@ -14,7 +17,7 @@ Functions
 - going into negatives is illegal?
 
 UI
-- + and - buttons are weird
+- + and - buttons are weird STILL BRO FIX IT
 - text limit for entries
 - when there are lots of entries, the gap between the end and the buttons is too little
 - when the entry list goes out of the box, make a cool fade or something visual rather than just abruptly cutting it off
