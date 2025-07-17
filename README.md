@@ -8,6 +8,9 @@ most important with the new fastening of the app:
 - adding transactions adds 2 to the UI. on the spreadsheet, only one. changes when you refresh
 example, i added an expense of 2000. i had 4000 showing balance. when i added, two duplicate entries were made, and balance showed -4000. on refresh it showed 2000. so, yeah.
 
+nooooo what happens is it adds a duplicate transaction as well as only adding the current sum present on the screen
+somehow it removes the first ever transaction, i really dont know whats happening here
+
 Functions
 - undo last transaction
 - swipe to reveal delete button and then delete transactions ( confirmation on it )

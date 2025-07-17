@@ -17,9 +17,10 @@ class Buttons extends StatelessWidget {
       children: [
         ElevatedButton(
           style: ElevatedButton.styleFrom(  
-            fixedSize: Size(0, 112),
+            // fixedSize: Size(0, 112),
+            fixedSize: Size(0, 65),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(20),
             ),
             backgroundColor: Color(0xFFFFFFFF)
           ),
@@ -29,7 +30,7 @@ class Buttons extends StatelessWidget {
           },
 
           child: Text(
-            "➕",
+            "",
             style: TextStyle(
               color: Color(0xFF6BBF59),
               fontSize: 15,
@@ -42,13 +43,11 @@ class Buttons extends StatelessWidget {
           ),
         ),
 
-        SizedBox(height:20),
-        
         ElevatedButton(
           style: ElevatedButton.styleFrom(  
-            fixedSize: Size(0, 112),
+            fixedSize: Size(0, 160),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15),
+              borderRadius: BorderRadius.circular(20),
             ),
             backgroundColor: Color(0xFFFFFFFF)
           ),
@@ -58,7 +57,7 @@ class Buttons extends StatelessWidget {
           },
 
           child: Text(
-            "😭",
+            "",
             style: TextStyle(
               color: Color(0xFFDB5375),
               fontSize: 15,

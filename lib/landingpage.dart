@@ -68,9 +68,11 @@ class _LandingPageState extends State<LandingPage> {
             Expanded(
               child: RefreshIndicator(
                 onRefresh: () async {
-                  await GoogleSheetsApi.loadTransactions();
+                  // await GoogleSheetsApi.loadTransactions();
+                  await GoogleSheetsApi.init();
                   setState(() {});
                 },
+
                 child: MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
@@ -95,7 +97,7 @@ class _LandingPageState extends State<LandingPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
+                SizedBox(
                   height: 250,
                   width: 230,
                   child: MyCarousel(),
