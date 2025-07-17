@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 // gsheets
-import 'package:gsheets/gsheets.dart';
 import 'package:expensetracker/gsheets_api.dart';
 
 void main() async {  

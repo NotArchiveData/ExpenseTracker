@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:expensetracker/balancecard.dart';
-import 'package:expensetracker/carousel.dart';
+import 'package:expensetracker/carousel/carousel.dart';
 import 'package:expensetracker/user_input/buttons.dart';
 import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
@@ -68,8 +68,7 @@ class _LandingPageState extends State<LandingPage> {
             Expanded(
               child: RefreshIndicator(
                 onRefresh: () async {
-                  // await GoogleSheetsApi.loadTransactions();
-                  await GoogleSheetsApi.init();
+                  await GoogleSheetsApi.loadTransactions();
                   setState(() {});
                 },
 
