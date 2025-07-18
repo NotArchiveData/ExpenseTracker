@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 class Transactions extends StatefulWidget {
@@ -36,7 +37,9 @@ class _TransactionsState extends State<Transactions> {
               motion: StretchMotion(), 
               children: [
                 SlidableAction(
-                  onPressed: ((context) {}),
+                  onPressed: ((context) {
+                    HapticFeedback.mediumImpact();
+                  }),
                   icon: Icons.edit,
                 ),
               ],
@@ -46,7 +49,9 @@ class _TransactionsState extends State<Transactions> {
               motion: StretchMotion(), 
               children: [
                 SlidableAction(
-                  onPressed: ((context) {}),
+                  onPressed: ((context) {
+                    HapticFeedback.mediumImpact();
+                  }),
                   icon: Icons.delete,
                   backgroundColor: Colors.red,
                 ),

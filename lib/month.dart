@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+
+import 'package:url_launcher/url_launcher.dart';
 
 // get month
 String getMonthYear() {
   DateTime now = DateTime.now();
   return DateFormat('MMMM yyyy').format(now);
 }
-
 
 class Month extends StatelessWidget {
   const Month({super.key});
@@ -44,14 +46,22 @@ class Month extends StatelessWidget {
         ),
     
         // place icon here
-        Container(
-          padding: EdgeInsets.all(5),
-          decoration: BoxDecoration(
-              shape: BoxShape.circle, color: Colors.grey[500]),
-          child: Center(
-            child: Icon(
-              Icons.attach_money_outlined,
-              color: Colors.white,
+        GestureDetector(
+          onTap: () {
+            HapticFeedback.mediumImpact();
+            launchUrl(
+              Uri.parse("https://docs.google.com/spreadsheets/d/1Ivzee5um4xcC7wAEit45GNNEmOJsOQLdGVweXBZW2Jk/edit")
+            );
+            },
+          child: Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                shape: BoxShape.circle, color: Colors.grey[500]),
+            child: Center(
+              child: Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              ),
             ),
           ),
         ),

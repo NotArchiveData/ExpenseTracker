@@ -1,6 +1,7 @@
 import 'package:expensetracker/user_input/add_funds.dart';
 import 'package:expensetracker/user_input/subtract_funds.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 // text editing fields to get access to what i typed
 TextEditingController service = TextEditingController();
@@ -26,6 +27,7 @@ class Buttons extends StatelessWidget {
           ),
 
           onPressed: () {
+            HapticFeedback.mediumImpact();
             showAddFundsDialog(context);
           },
 
@@ -53,6 +55,7 @@ class Buttons extends StatelessWidget {
           ),
 
           onPressed: (){
+            HapticFeedback.mediumImpact();
             showSubtractFundsDialog(context);
           },
 
