@@ -12,6 +12,7 @@ nooooo what happens is it adds a duplicate transaction as well as only adding th
 somehow it removes the first ever transaction, i really dont know whats happening here
 
 Functions
+- more info: hour:minute time, list of items for expense
 - undo last transaction
 - swipe to reveal delete button and then delete transactions ( confirmation on it )
 - last item in the list of transactions will be an option that takes you directly to the spreadsheet!!

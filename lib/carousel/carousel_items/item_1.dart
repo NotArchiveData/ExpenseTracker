@@ -6,7 +6,7 @@ class Item1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Color(0xFFDB5375),
     );
   }
 }

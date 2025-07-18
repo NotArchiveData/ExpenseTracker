@@ -41,6 +41,7 @@ class _TransactionsState extends State<Transactions> {
                     HapticFeedback.mediumImpact();
                   }),
                   icon: Icons.edit,
+                  backgroundColor: Color(0xFFB0B0B0),
                 ),
               ],
             ),
@@ -53,7 +54,7 @@ class _TransactionsState extends State<Transactions> {
                     HapticFeedback.mediumImpact();
                   }),
                   icon: Icons.delete,
-                  backgroundColor: Colors.red,
+                  backgroundColor: Color(0xFFDB5375),
                 ),
               ],
             ),
