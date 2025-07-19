@@ -5,12 +5,16 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 class Transactions extends StatefulWidget {
   final String transactionName;
   final String date;
+  final String time;
+  final String items;
   final String money;
   final String expenseOrIncome;
 
   Transactions({
     required this.transactionName,
     required this.date,
+    required this.time,
+    required this.items,
     required this.money,
     required this.expenseOrIncome
   });
@@ -32,19 +36,19 @@ class _TransactionsState extends State<Transactions> {
         ClipRRect(
           borderRadius: BorderRadius.circular(15),
 
-          child: Slidable(
-            startActionPane: ActionPane(
+          child:  Slidable(
+            startActionPane: widget.expenseOrIncome == "expense" ? ActionPane(
               motion: StretchMotion(), 
               children: [
                 SlidableAction(
                   onPressed: ((context) {
                     HapticFeedback.mediumImpact();
                   }),
-                  icon: Icons.edit,
-                  backgroundColor: Color(0xFFB0B0B0),
+                  icon: Icons.info_outline,
+                  backgroundColor: Color(0xFFEAEAEA),
                 ),
               ],
-            ),
+            ) : null,
 
             endActionPane: ActionPane(
               motion: StretchMotion(), 
@@ -116,7 +120,7 @@ class _TransactionsState extends State<Transactions> {
                                 ),
                             
                                 Text(
-                                  widget.date,
+                                  "${widget.time}, ${widget.date}",
                                   style: TextStyle(
                                     color: Color(0xFF949494),
                                     fontSize: 8,
@@ -127,6 +131,7 @@ class _TransactionsState extends State<Transactions> {
                                       applyHeightToLastDescent: false,
                                     ),
                                 ),
+
                               ],
                             ),
                           ],

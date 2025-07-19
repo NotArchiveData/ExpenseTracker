@@ -83,9 +83,11 @@ class _LandingPageState extends State<LandingPage> {
 
                       return Transactions(
                         date: reversedList[index][0], 
-                        transactionName: reversedList[index][1], 
-                        money: reversedList[index][3], 
-                        expenseOrIncome: reversedList[index][4]
+                        time: reversedList[index][1], 
+                        transactionName: reversedList[index][2], 
+                        items: reversedList[index][3], 
+                        money: reversedList[index][4], 
+                        expenseOrIncome: reversedList[index][5]
                       );
                   }),
                 ),

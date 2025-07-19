@@ -13,6 +13,7 @@ Functions
 - cannot enter empty values for subtract or add
 
 UI
+- x at the end of text boxes to clear entries
 - text limit for entries
 - detailed transaction on tap, opens up to a bigger menu or animate tile into full view smth smth
 - inner shadow on the cards and buttons to add that extra coolness
