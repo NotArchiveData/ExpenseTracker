@@ -5,6 +5,7 @@
 to do
 
 Functions
+- tapping on the card shows you more details in a popup menu along with the option to close the popup or delete the entry -> asking for another confirmation when clicked delete. 
 - more info: hour:minute time, list of items for expense
 - undo last transaction
 - swipe to reveal delete button and then delete transactions ( confirmation on it )

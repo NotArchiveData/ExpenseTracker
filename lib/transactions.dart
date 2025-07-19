@@ -106,17 +106,51 @@ class _TransactionsState extends State<Transactions> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(
-                                  widget.transactionName,
-                                  style: TextStyle(
-                                    color: Color(0xFFFFFFFF),
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  textHeightBehavior: TextHeightBehavior(
-                                      applyHeightToFirstAscent: false,
-                                      applyHeightToLastDescent: false,
+                                AnimatedSize(
+                                  duration: Duration(milliseconds: 300),
+                                  curve: Curves.easeInOut,
+                                  child: AnimatedSwitcher(
+                                    duration: Duration(milliseconds: 300),
+                                    child: Container(
+                                      constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width - 220),
+                                      child: isExpanded ? Text(
+                                        key: ValueKey("expanded"),
+                                        widget.transactionName,
+                                        maxLines: isExpanded ? null : 1,
+                                        overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
+                                        softWrap: true,
+                                        style: TextStyle(
+                                          color: Color(0xFFFFFFFF),
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        textHeightBehavior: TextHeightBehavior(
+                                            applyHeightToFirstAscent: false,
+                                            applyHeightToLastDescent: false,
+                                          ),
+                                      ) : Text(
+                                        key: ValueKey("collapsed"),
+                                        widget.transactionName,
+                                        maxLines: isExpanded ? null : 1,
+                                        overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
+                                        softWrap: true,
+                                        style: TextStyle(
+                                          color: Color(0xFFFFFFFF),
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                        textHeightBehavior: TextHeightBehavior(
+                                            applyHeightToFirstAscent: false,
+                                            applyHeightToLastDescent: false,
+                                        ),
+                                      ),
                                     ),
+                                  ),
+                                ),
+
+                                AnimatedSize(
+                                  duration: Duration(milliseconds: 300),
+                                  child: SizedBox(height: isExpanded ? 10 : 2,)
                                 ),
                             
                                 Text(
@@ -131,7 +165,7 @@ class _TransactionsState extends State<Transactions> {
                                       applyHeightToLastDescent: false,
                                     ),
                                 ),
-
+                            
                               ],
                             ),
                           ],
