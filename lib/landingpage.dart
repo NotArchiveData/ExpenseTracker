@@ -79,12 +79,14 @@ class _LandingPageState extends State<LandingPage> {
                     reverse: false,
                     itemCount: GoogleSheetsApi.currentTransactions.length,
                     itemBuilder: (context, index) {
-                    return Transactions(
-                      date: GoogleSheetsApi.currentTransactions[index][0], 
-                      transactionName: GoogleSheetsApi.currentTransactions[index][1], 
-                      money: GoogleSheetsApi.currentTransactions[index][2], 
-                      expenseOrIncome: GoogleSheetsApi.currentTransactions[index][3]
-                    );
+                      final reversedList = GoogleSheetsApi.currentTransactions.reversed.toList();
+
+                      return Transactions(
+                        date: reversedList[index][0], 
+                        transactionName: reversedList[index][1], 
+                        money: reversedList[index][3], 
+                        expenseOrIncome: reversedList[index][4]
+                      );
                   }),
                 ),
               )

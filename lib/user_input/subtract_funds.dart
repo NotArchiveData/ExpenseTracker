@@ -1,32 +1,25 @@
 import 'package:expensetracker/gsheets_api.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 // stuff to get access to inputs
 final TextEditingController amount = TextEditingController();
 final TextEditingController to = TextEditingController();
 final TextEditingController items = TextEditingController();
-final subtractFunds = Hive.box("-");
-
-// enter new transaction into local storage
-void addText() async {
-    // append all values into local database
-    subtractFunds.put(1, amount.text);
-    subtractFunds.put(2, to.text);
-
-    // clear text field
-    amount.clear();
-    to.clear();
-}
 
 // enter new transaction into gsheets
 void enterTransaction() {
   GoogleSheetsApi.insertFund(
-    subtractFunds.get(1),
-    subtractFunds.get(2),
+    amount.text,
+    to.text,
+    items.text,
     false,
   );
+
+  // clear text field
+  amount.clear();
+  to.clear();
+  items.clear();
 }
 
 Future<void> showSubtractFundsDialog(BuildContext context) async {
@@ -155,6 +148,7 @@ Future<void> showSubtractFundsDialog(BuildContext context) async {
 
                           amount.clear();
                           to.clear();
+                          items.clear();
                         },
 
                         child: Text(
@@ -174,7 +168,6 @@ Future<void> showSubtractFundsDialog(BuildContext context) async {
                       child: TextButton(
                         onPressed: () {
                           Navigator.of(context).pop();
-                          addText();
                           enterTransaction();
                         },
                         child: Text(
