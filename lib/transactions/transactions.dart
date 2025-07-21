@@ -1,3 +1,4 @@
+import 'package:expensetracker/gsheets_api.dart';
 import 'package:expensetracker/transactions/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ class Transactions extends StatefulWidget {
   final String items;
   final String money;
   final String expenseOrIncome;
+  final VoidCallback onDelete;
 
   Transactions({
     required this.transactionName,
@@ -17,7 +19,8 @@ class Transactions extends StatefulWidget {
     required this.time,
     required this.items,
     required this.money,
-    required this.expenseOrIncome
+    required this.expenseOrIncome,
+    required this.onDelete,
   });
 
   @override
@@ -53,6 +56,7 @@ class _TransactionsState extends State<Transactions> {
                       date: widget.date,
                       items: widget.items,
                       money: widget.money,
+                      
                     );
                   }),
                   icon: Icons.info_outline,
@@ -67,6 +71,20 @@ class _TransactionsState extends State<Transactions> {
               children: [
                 SlidableAction(
                   onPressed: ((context) {
+                    GoogleSheetsApi.deleteRow(
+                      widget.transactionName,
+                      widget.date, 
+                      widget.time
+                      );
+
+                    GoogleSheetsApi.currentTransactions.removeWhere((row) =>
+                      row[0] == widget.date &&
+                      row[1] == widget.time &&
+                      row[2] == widget.transactionName
+                    );
+
+                    widget.onDelete();
+
                     HapticFeedback.mediumImpact();
                   }),
                   icon: Icons.delete,

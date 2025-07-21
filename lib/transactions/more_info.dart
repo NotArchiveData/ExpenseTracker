@@ -101,7 +101,7 @@ Future<void> showMoreInfo(BuildContext context, {
                           
                     // RED SIDE CONTAINER
                     GestureDetector(
-                      onTap: () {
+                      onTap: () {                        
                         HapticFeedback.mediumImpact();
                         Navigator.of(context).pop();
                       },                      

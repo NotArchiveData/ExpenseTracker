@@ -85,7 +85,10 @@ class _LandingPageState extends State<LandingPage> {
                         transactionName: reversedList[index][2], 
                         items: reversedList[index][3], 
                         money: reversedList[index][4], 
-                        expenseOrIncome: reversedList[index][5]
+                        expenseOrIncome: reversedList[index][5],
+                        onDelete: () {
+                          setState(() {}); // Rebuild the list here
+                        },
                       );
                   }),
                 ),
