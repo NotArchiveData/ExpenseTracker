@@ -28,11 +28,11 @@ Future<void> showAddFundsDialog(BuildContext context) async {
         backgroundColor: Colors.transparent,
         insetPadding: EdgeInsets.zero,
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: Container(
             decoration: BoxDecoration(
               color: Color(0xFF2b2b2b),
-              border: Border.all(color: Color(0xFF555555)),
+              border: Border.all(color: Color(0xFF6BBF59)),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -44,7 +44,7 @@ Future<void> showAddFundsDialog(BuildContext context) async {
                   "Add Funds",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 22,
+                    fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
                   textHeightBehavior: TextHeightBehavior(

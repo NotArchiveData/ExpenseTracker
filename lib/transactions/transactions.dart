@@ -1,3 +1,4 @@
+import 'package:expensetracker/transactions/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -37,12 +38,22 @@ class _TransactionsState extends State<Transactions> {
           borderRadius: BorderRadius.circular(15),
 
           child:  Slidable(
+
+            // extra info
             startActionPane: widget.expenseOrIncome == "expense" ? ActionPane(
               motion: StretchMotion(), 
               children: [
                 SlidableAction(
                   onPressed: ((context) {
                     HapticFeedback.mediumImpact();
+                    showMoreInfo(
+                      context,
+                      transactionName: widget.transactionName,
+                      time: widget.time,
+                      date: widget.date,
+                      items: widget.items,
+                      money: widget.money,
+                    );
                   }),
                   icon: Icons.info_outline,
                   backgroundColor: Color(0xFFEAEAEA),
@@ -50,6 +61,7 @@ class _TransactionsState extends State<Transactions> {
               ],
             ) : null,
 
+            // delete
             endActionPane: ActionPane(
               motion: StretchMotion(), 
               children: [
@@ -85,7 +97,7 @@ class _TransactionsState extends State<Transactions> {
                         Row(
                           children: [
               
-                            // thin rectangle design
+                            // thin rectangle design on the left
                             AnimatedContainer(
                               duration: Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
@@ -102,56 +114,29 @@ class _TransactionsState extends State<Transactions> {
               
                             SizedBox(width: 15),
                             
+                            // main transaction + time and date
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                AnimatedSize(
-                                  duration: Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                  child: AnimatedSwitcher(
-                                    duration: Duration(milliseconds: 300),
-                                    child: Container(
-                                      constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width - 220),
-                                      child: isExpanded ? Text(
-                                        key: ValueKey("expanded"),
-                                        widget.transactionName,
-                                        maxLines: isExpanded ? null : 1,
-                                        overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
-                                        softWrap: true,
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        textHeightBehavior: TextHeightBehavior(
-                                            applyHeightToFirstAscent: false,
-                                            applyHeightToLastDescent: false,
-                                          ),
-                                      ) : Text(
-                                        key: ValueKey("collapsed"),
-                                        widget.transactionName,
-                                        maxLines: isExpanded ? null : 1,
-                                        overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
-                                        softWrap: true,
-                                        style: TextStyle(
-                                          color: Color(0xFFFFFFFF),
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w600,
-                                        ),
-                                        textHeightBehavior: TextHeightBehavior(
-                                            applyHeightToFirstAscent: false,
-                                            applyHeightToLastDescent: false,
-                                        ),
-                                      ),
+                                Container(
+                                  constraints: BoxConstraints(maxWidth: MediaQuery.of(context).size.width - 220),
+                                  child: Text(
+                                    widget.transactionName,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: Color(0xFFFFFFFF),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
                                     ),
-                                  ),
+                                    textHeightBehavior: TextHeightBehavior(
+                                        applyHeightToFirstAscent: false,
+                                        applyHeightToLastDescent: false,
+                                      ),
+                                  )
                                 ),
 
-                                AnimatedSize(
-                                  duration: Duration(milliseconds: 300),
-                                  child: SizedBox(height: isExpanded ? 10 : 2,)
-                                ),
+                                SizedBox(height:2),
                             
                                 Text(
                                   "${widget.time}, ${widget.date}",

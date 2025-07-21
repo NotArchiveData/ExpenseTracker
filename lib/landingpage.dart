@@ -5,11 +5,10 @@ import 'package:expensetracker/carousel/carousel.dart';
 import 'package:expensetracker/user_input/buttons.dart';
 import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
-import 'package:expensetracker/transactions.dart';
+import 'package:expensetracker/transactions/transactions.dart';
 import 'package:flutter/material.dart';
 
 // gsheets
-import 'package:gsheets/gsheets.dart';
 import 'package:expensetracker/gsheets_api.dart';
 
 class LandingPage extends StatefulWidget {
@@ -76,7 +75,6 @@ class _LandingPageState extends State<LandingPage> {
                   context: context,
                   removeTop: true,
                   child: GoogleSheetsApi.loading == true ? LoadingCircle() : ListView.builder(
-                    reverse: false,
                     itemCount: GoogleSheetsApi.currentTransactions.length,
                     itemBuilder: (context, index) {
                       final reversedList = GoogleSheetsApi.currentTransactions.reversed.toList();

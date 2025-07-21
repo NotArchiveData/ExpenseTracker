@@ -14,20 +14,12 @@ Functions
 - cannot enter empty values for subtract or add
 
 UI
+- try to make the app smoother, seems to be a bit laggy? maybe just an emulator thing but check
 - x at the end of text boxes to clear entries
 - text limit for entries
-- detailed transaction on tap, opens up to a bigger menu or animate tile into full view smth smth
 - inner shadow on the cards and buttons to add that extra coolness
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Final changes
+- front loading page
+- app icon
+- sounds you want to add, could be cool
