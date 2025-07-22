@@ -5,7 +5,6 @@
 to do
 
 Functions
-- tapping on the card shows you more details in a popup menu along with the option to close the popup or delete the entry -> asking for another confirmation when clicked delete.
 - swipe to reveal delete button and then delete transactions ( confirmation on it )
 - pressing a button immediately takes you to type
 - going into negatives is illegal?
@@ -15,7 +14,6 @@ UI
 - more details displays a thinner box when theres less text to show. make the width of the popup be the max it can 
 - try to make the app smoother, seems to be a bit laggy? maybe just an emulator thing but check
 - x at the end of text boxes to clear entries
-- text limit for entries
 - inner shadow on the cards and buttons to add that extra coolness
 
 Final changes

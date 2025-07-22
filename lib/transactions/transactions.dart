@@ -1,4 +1,5 @@
 import 'package:expensetracker/gsheets_api.dart';
+import 'package:expensetracker/transactions/confirm_del.dart';
 import 'package:expensetracker/transactions/more_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -71,21 +72,36 @@ class _TransactionsState extends State<Transactions> {
               children: [
                 SlidableAction(
                   onPressed: ((context) {
-                    GoogleSheetsApi.deleteRow(
-                      widget.transactionName,
-                      widget.date, 
-                      widget.time
-                      );
+                    showDeleteConfirmation(
+                      context, 
+                      transactionPreview: Transactions(
+                        transactionName: widget.transactionName,
+                        date: widget.date,
+                        time: widget.time,
+                        items: widget.items,
+                        money: widget.money,
+                        expenseOrIncome: widget.expenseOrIncome,
+                        onDelete: () {},                        
+                      ),
+                      onConfirm: () {
+                    
+                        GoogleSheetsApi.deleteRow(
+                          widget.transactionName,
+                          widget.date, 
+                          widget.time
+                          );
 
-                    GoogleSheetsApi.currentTransactions.removeWhere((row) =>
-                      row[0] == widget.date &&
-                      row[1] == widget.time &&
-                      row[2] == widget.transactionName
+                        GoogleSheetsApi.currentTransactions.removeWhere((row) =>
+                          row[0] == widget.date &&
+                          row[1] == widget.time &&
+                          row[2] == widget.transactionName
+                        );
+
+                        widget.onDelete();
+
+                        HapticFeedback.mediumImpact();
+                      }
                     );
-
-                    widget.onDelete();
-
-                    HapticFeedback.mediumImpact();
                   }),
                   icon: Icons.delete,
                   backgroundColor: Color(0xFFDB5375),
