@@ -1,14 +1,20 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class Item6 extends StatelessWidget {
-  const Item6({super.key});
+  final String? imageUrl;
+  const Item6({Key? key, this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.lightGreen,
-      ),
+    if (imageUrl == null) {
+      return const Text("No image found");
+    }
+
+    return CachedNetworkImage(
+      imageUrl: imageUrl!,
+      fit: BoxFit.cover,
+      errorWidget: (context, url, error) => const Text('Failed to load image'),
     );
   }
 }

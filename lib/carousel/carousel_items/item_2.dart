@@ -1,15 +1,20 @@
-import 'package:expensetracker/gsheets_api.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class Item2 extends StatelessWidget {
-  const Item2({super.key});
+  final String? imageUrl;
+  const Item2({Key? key, this.imageUrl}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.pinkAccent,
-      ),
+    if (imageUrl == null) {
+      return const Text("No image found");
+    }
+
+    return CachedNetworkImage(
+      imageUrl: imageUrl!,
+      fit: BoxFit.cover,
+      errorWidget: (context, url, error) => const Text('Failed to load image'),
     );
   }
 }
