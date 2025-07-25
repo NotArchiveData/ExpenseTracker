@@ -65,6 +65,7 @@ Future<void> showSubtractFundsDialog(BuildContext context) async {
 
                       // input amount
                       TextField(
+                        autofocus: true,
                         controller: amount,
                         keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
@@ -144,6 +145,7 @@ Future<void> showSubtractFundsDialog(BuildContext context) async {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
+                          HapticFeedback.lightImpact();
                           Navigator.of(context).pop();
 
                           amount.clear();
@@ -167,8 +169,16 @@ Future<void> showSubtractFundsDialog(BuildContext context) async {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
-                          enterTransaction();
+                          HapticFeedback.lightImpact();
+
+                          if (amount.text.trim().isEmpty || to.text.trim().isEmpty) {
+
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please fill all required fields")));
+                          } else {
+                            items.text = "---";
+                            enterTransaction();
+                            Navigator.of(context).pop();  
+                          }
                         },
                         child: Text(
                           "Enter",

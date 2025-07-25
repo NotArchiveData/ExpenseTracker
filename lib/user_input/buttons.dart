@@ -27,7 +27,7 @@ class Buttons extends StatelessWidget {
           ),
 
           onPressed: () {
-            HapticFeedback.mediumImpact();
+            HapticFeedback.lightImpact();
             showAddFundsDialog(context);
           },
 
@@ -40,7 +40,6 @@ class Buttons extends StatelessWidget {
             ),
             textHeightBehavior: TextHeightBehavior(
                 applyHeightToFirstAscent: false,
-                // applyHeightToLastDescent: false,
               ),
           ),
         ),
@@ -55,7 +54,7 @@ class Buttons extends StatelessWidget {
           ),
 
           onPressed: (){
-            HapticFeedback.mediumImpact();
+            HapticFeedback.lightImpact();
             showSubtractFundsDialog(context);
           },
 

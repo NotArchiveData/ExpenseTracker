@@ -5,9 +5,7 @@
 to do
 
 Functions
-- pressing a button immediately takes you to type
 - going into negatives is illegal?
-- cannot enter empty values for subtract or add
 
 UI
 - try to make the app smoother, seems to be a bit laggy? maybe just an emulator thing but check
@@ -16,5 +14,4 @@ UI
 
 Final changes
 - front loading page
-- app icon
 - sounds you want to add, could be cool

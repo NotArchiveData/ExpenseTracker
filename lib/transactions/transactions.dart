@@ -49,7 +49,8 @@ class _TransactionsState extends State<Transactions> {
               children: [
                 SlidableAction(
                   onPressed: ((context) {
-                    HapticFeedback.mediumImpact();
+                    HapticFeedback.lightImpact();
+                    
                     showMoreInfo(
                       context,
                       transactionName: widget.transactionName,
@@ -72,6 +73,8 @@ class _TransactionsState extends State<Transactions> {
               children: [
                 SlidableAction(
                   onPressed: ((context) {
+                    HapticFeedback.lightImpact();
+
                     showDeleteConfirmation(
                       context, 
                       transactionPreview: Transactions(
@@ -84,7 +87,8 @@ class _TransactionsState extends State<Transactions> {
                         onDelete: () {},                        
                       ),
                       onConfirm: () {
-                    
+                        HapticFeedback.lightImpact();
+
                         GoogleSheetsApi.deleteRow(
                           widget.transactionName,
                           widget.date, 
@@ -98,8 +102,6 @@ class _TransactionsState extends State<Transactions> {
                         );
 
                         widget.onDelete();
-
-                        HapticFeedback.mediumImpact();
                       }
                     );
                   }),

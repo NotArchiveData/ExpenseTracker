@@ -60,6 +60,7 @@ Future<void> showAddFundsDialog(BuildContext context) async {
                   child: Column(
                     children: [
                       TextField(
+                        autofocus: true,
                         controller: amount,
                         keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
@@ -116,6 +117,7 @@ Future<void> showAddFundsDialog(BuildContext context) async {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
+                          HapticFeedback.lightImpact();
                           Navigator.of(context).pop();
 
                           amount.clear();
@@ -138,9 +140,17 @@ Future<void> showAddFundsDialog(BuildContext context) async {
                     Expanded(
                       child: TextButton(
                         onPressed: () {
-                          Navigator.of(context).pop();
-                          enterTransaction();
+                          HapticFeedback.lightImpact();
+                          
+                          if (amount.text.trim().isEmpty || from.text.trim().isEmpty) {
+
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please fill all required fields")));
+                          } else {
+                            enterTransaction();
+                            Navigator.of(context).pop();  
+                          }
                         },
+
                         child: Text(
                           "Enter",
                           style: TextStyle(

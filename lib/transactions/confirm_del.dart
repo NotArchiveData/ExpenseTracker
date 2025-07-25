@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 Future<void> showDeleteConfirmation(BuildContext context, {
   required Widget transactionPreview,
@@ -19,8 +20,6 @@ Future<void> showDeleteConfirmation(BuildContext context, {
             ignoring: true,
             child: transactionPreview,
           ),
-
-          // SizedBox(height: 20,),
       
           Container(
             width: double.infinity,
@@ -60,11 +59,18 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                 Column(
                   children: [
 
+
                     Divider(height: 2, color: Color(0xFF555555)),
+
+                    const SizedBox(height: 7),
 
                     Center(
                       child: TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
+                        onPressed: () {
+                          HapticFeedback.lightImpact();
+                          Navigator.of(context).pop();
+                        },
+                      
                         child: Text(
                           "Cancel", 
                           style: TextStyle(
@@ -76,11 +82,16 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                       ),
                     ),
             
+                    const SizedBox(height: 7),
+
                     Divider(height: 2, color: Color(0xFF555555)),
+
+                    const SizedBox(height: 7),
             
                     Center(
                       child: TextButton(
                         onPressed: () {
+                          HapticFeedback.lightImpact();
                           Navigator.of(context).pop();
                           onConfirm();
                         },
@@ -94,6 +105,8 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                           ),
                       ),
                     ),
+
+                    const SizedBox(height: 7),
                   ],
                 ),
 
