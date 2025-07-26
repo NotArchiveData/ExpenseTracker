@@ -1,3 +1,4 @@
+import 'package:expensetracker/colours.dart';
 import 'package:expensetracker/gsheets_api.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -11,7 +12,7 @@ class BalanceCard extends StatelessWidget {
       height: 120,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: Colors.white,
+        color: white,
       ),
         child: Center(
           child: Column(
@@ -20,7 +21,7 @@ class BalanceCard extends StatelessWidget {
       
               Text(
                 "₹${NumberFormat('#,##0', 'en_IN').format((GoogleSheetsApi.calculateFunds() - GoogleSheetsApi.calculateExpenses()).toInt())}",
-                style: TextStyle(color: Color(0xFF2b2b2b), fontSize: 30, fontWeight: FontWeight.w800),
+                style: TextStyle(color: mainBg, fontSize: 30, fontWeight: FontWeight.w800),
                 textHeightBehavior: TextHeightBehavior(
                   applyHeightToFirstAscent: false,
                   applyHeightToLastDescent: false,
@@ -34,14 +35,14 @@ class BalanceCard extends StatelessWidget {
                     child: Container(
                       margin: const EdgeInsets.fromLTRB(80, 0, 8, 0),
                       height: 1,
-                      color: Color(0xFFBDBDBD),
+                      color: lightGrey,
                     ),
                   ),
 
                   Text(
                     "balance",
                     style: TextStyle(
-                      color: Color(0xFF949494),
+                      color: lightGrey,
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                     ),
@@ -51,7 +52,7 @@ class BalanceCard extends StatelessWidget {
                     child: Container(
                       margin: const EdgeInsets.fromLTRB(8, 0, 80, 0),
                       height: 1,
-                      color: Color(0xFFBDBDBD),
+                      color: lightGrey,
                     ),
                   ),
                 ],

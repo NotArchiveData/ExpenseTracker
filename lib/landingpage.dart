@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:expensetracker/balancecard.dart';
+import 'package:expensetracker/balance_card.dart';
 import 'package:expensetracker/carousel/carousel.dart';
+import 'package:expensetracker/carousel/image_cache_preloader.dart';
 import 'package:expensetracker/user_input/buttons.dart';
 import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
@@ -22,9 +23,29 @@ class _LandingPageState extends State<LandingPage> {
 
   // wait for data to be fetched from gsheets
   bool timerHasStarted = false;
+  bool imagesPreloaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Start loading GSheets
+    if (GoogleSheetsApi.loading) {
+      startLoading();
+    }
+
+    // Preload images and trigger rebuild when done
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      await ImageCacheController().preloadImages(context);
+      setState(() {
+        imagesPreloaded = true;
+      });
+    });
+  }
+
   void startLoading() {
     timerHasStarted = true;
-    Timer.periodic(Duration(seconds: 1), (timer) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
       if (GoogleSheetsApi.loading == false) {
         setState(() {});
         timer.cancel();
@@ -34,10 +55,6 @@ class _LandingPageState extends State<LandingPage> {
 
   @override
   Widget build(BuildContext context) {
-    // start loading until the data comes
-    if (GoogleSheetsApi.loading == true && timerHasStarted == false) {
-      startLoading();
-    }
 
     // main landing page
     return Scaffold(
@@ -104,7 +121,7 @@ class _LandingPageState extends State<LandingPage> {
                 SizedBox(
                   height: 250,
                   width: 230,
-                  child: MyCarousel(),
+                  child: imagesPreloaded ? MyCarousel() : const Center(child: CircularProgressIndicator(),),
                 ),
 
                 SizedBox(

@@ -62,51 +62,60 @@ Future<void> showDeleteConfirmation(BuildContext context, {
 
                     Divider(height: 2, color: Color(0xFF555555)),
 
-                    const SizedBox(height: 7),
-
-                    Center(
-                      child: TextButton(
-                        onPressed: () {
+                    // cancel button
+                    Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
                           HapticFeedback.lightImpact();
                           Navigator.of(context).pop();
                         },
-                      
-                        child: Text(
-                          "Cancel", 
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w600,
-                            )
+                        splashColor: Colors.white12,
+                        highlightColor: Colors.white10,
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Cancel",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
+                        ),
                       ),
                     ),
-            
-                    const SizedBox(height: 7),
 
                     Divider(height: 2, color: Color(0xFF555555)),
 
-                    const SizedBox(height: 7),
-            
-                    Center(
-                      child: TextButton(
-                        onPressed: () {
+                    // delete button
+                    Material(
+                      color: Colors.transparent,
+                      child: InkWell(
+                        onTap: () {
                           HapticFeedback.lightImpact();
                           Navigator.of(context).pop();
                           onConfirm();
                         },
-                        child: Text(
-                          "Delete", 
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 15,
-                            fontWeight: FontWeight.w400,
-                            )
+                        splashColor: Colors.white12,
+                        highlightColor: Colors.white10,
+                        child: Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
+                          alignment: Alignment.center,
+                          child: const Text(
+                            "Delete",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400,
+                            ),
                           ),
+                        ),
                       ),
                     ),
-
-                    const SizedBox(height: 7),
                   ],
                 ),
 

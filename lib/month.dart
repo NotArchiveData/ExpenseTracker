@@ -1,7 +1,7 @@
+import 'package:expensetracker/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
-
 import 'package:url_launcher/url_launcher.dart';
 
 // get month
@@ -24,7 +24,7 @@ class Month extends StatelessWidget {
             Text(
               "Expenses",
               style: TextStyle(
-                color: Color(0xFF949494),
+                color: mediumGrey,
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 ),
@@ -45,23 +45,19 @@ class Month extends StatelessWidget {
           ],
         ),
     
-        // place icon here
-        GestureDetector(
-          onTap: () {
-            HapticFeedback.mediumImpact();
-            launchUrl(
-              Uri.parse("https://docs.google.com/spreadsheets/d/1Ivzee5um4xcC7wAEit45GNNEmOJsOQLdGVweXBZW2Jk/edit")
-            );
+        // icon to go to spreadsheets
+        Material(
+          color: fadedGrey,
+          shape: const CircleBorder(),
+          child: InkWell(
+            onTap: () {
+              HapticFeedback.lightImpact();
+              launchUrl(Uri.parse("https://docs.google.com/spreadsheets/d/1Ivzee5um4xcC7wAEit45GNNEmOJsOQLdGVweXBZW2Jk/edit"));
             },
-          child: Container(
-            padding: EdgeInsets.all(5),
-            decoration: BoxDecoration(
-                shape: BoxShape.circle, color: Colors.grey[500]),
-            child: Center(
-              child: Icon(
-                Icons.exit_to_app,
-                color: Colors.white,
-              ),
+            customBorder: const CircleBorder(),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Icon(Icons.exit_to_app, color: Colors.white),
             ),
           ),
         ),

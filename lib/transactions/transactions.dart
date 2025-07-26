@@ -1,3 +1,4 @@
+import 'package:expensetracker/colours.dart';
 import 'package:expensetracker/gsheets_api.dart';
 import 'package:expensetracker/transactions/confirm_del.dart';
 import 'package:expensetracker/transactions/more_info.dart';
@@ -62,7 +63,7 @@ class _TransactionsState extends State<Transactions> {
                     );
                   }),
                   icon: Icons.info_outline,
-                  backgroundColor: Color(0xFFEAEAEA),
+                  backgroundColor: fadedGrey,
                 ),
               ],
             ) : null,
