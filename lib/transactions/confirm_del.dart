@@ -1,3 +1,4 @@
+import 'package:expensetracker/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -5,6 +6,7 @@ Future<void> showDeleteConfirmation(BuildContext context, {
   required Widget transactionPreview,
   required VoidCallback onConfirm,
 }) {
+
   return showModalBottomSheet(
     context: context,
     backgroundColor: Colors.transparent,
@@ -24,7 +26,7 @@ Future<void> showDeleteConfirmation(BuildContext context, {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Color(0xFF2B2B2B),
+              color: mainBg,
               borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
             ),
             child: Column(
@@ -59,8 +61,7 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                 Column(
                   children: [
 
-
-                    Divider(height: 2, color: Color(0xFF555555)),
+                    Divider(height: 2, color: fadedGrey),
 
                     // cancel button
                     Material(
@@ -74,7 +75,7 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                         highlightColor: Colors.white10,
                         child: Container(
                           width: double.infinity,
-                          padding: const EdgeInsets.fromLTRB(14, 14, 14, 14),
+                          padding: const EdgeInsets.all(14.0),
                           alignment: Alignment.center,
                           child: const Text(
                             "Cancel",
@@ -88,7 +89,7 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                       ),
                     ),
 
-                    Divider(height: 2, color: Color(0xFF555555)),
+                    Divider(height: 2, color: fadedGrey),
 
                     // delete button
                     Material(
@@ -118,15 +119,9 @@ Future<void> showDeleteConfirmation(BuildContext context, {
                     ),
                   ],
                 ),
-
-
               ],
             ),
           ),
-
-          
-
-          
         ],
       );
     },

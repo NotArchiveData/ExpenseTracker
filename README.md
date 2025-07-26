@@ -4,16 +4,24 @@
 
 files parsed and sorted:
 - month.dart
+
 - balancecard.dart
+
+- transactions.dart
+- confirm_del.dart
+- more_info.dart
+
 - add_funds.dart
 - subtract_funds.dart
 - buttons.dart
+
+- carousel.dart
+- image_cache_preloader.dart
 
 to do
 
 urgent
 - reloading icon colour is to be changed.
-- make sure to replace the code in the main.dart file to add the white icons at the top and buttom
 - finally, clean up the code. make things smoother, and, remove unnecessary things. 
 
 Future Updates:

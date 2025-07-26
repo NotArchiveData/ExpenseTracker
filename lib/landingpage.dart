@@ -1,10 +1,9 @@
 import 'dart:async';
-
 import 'package:expensetracker/balance_card.dart';
 import 'package:expensetracker/carousel/carousel.dart';
 import 'package:expensetracker/carousel/image_cache_preloader.dart';
+import 'package:expensetracker/colours.dart';
 import 'package:expensetracker/user_input/buttons.dart';
-import 'package:expensetracker/loading.dart';
 import 'package:expensetracker/month.dart';
 import 'package:expensetracker/transactions/transactions.dart';
 import 'package:flutter/material.dart';
@@ -83,6 +82,8 @@ class _LandingPageState extends State<LandingPage> {
             // transactions list
             Expanded(
               child: RefreshIndicator(
+                color: Colors.white,
+                backgroundColor: mainBg,
                 onRefresh: () async {
                   await GoogleSheetsApi.loadTransactions();
                   setState(() {});
@@ -91,7 +92,9 @@ class _LandingPageState extends State<LandingPage> {
                 child: MediaQuery.removePadding(
                   context: context,
                   removeTop: true,
-                  child: GoogleSheetsApi.loading == true ? LoadingCircle() : ListView.builder(
+                  child: GoogleSheetsApi.loading == true ? const Center(
+                    child: CircularProgressIndicator(),
+                  ) : ListView.builder(
                     itemCount: GoogleSheetsApi.currentTransactions.length,
                     itemBuilder: (context, index) {
                       final reversedList = GoogleSheetsApi.currentTransactions.reversed.toList();

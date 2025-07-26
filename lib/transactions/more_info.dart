@@ -1,3 +1,4 @@
+import 'package:expensetracker/colours.dart';
 import 'package:flutter/material.dart';
 
 Future<void> showMoreInfo(BuildContext context, {
@@ -19,7 +20,7 @@ Future<void> showMoreInfo(BuildContext context, {
           decoration: BoxDecoration(
             color: Colors.transparent,
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: Color(0xFF555555)),
+            border: Border.all(color: fadedGrey),
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
@@ -32,8 +33,8 @@ Future<void> showMoreInfo(BuildContext context, {
                   // Grey main rect
                   Expanded( 
                     child: Container(
-                      color: Color(0xFF2b2b2b),
-                      padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
+                      color: mainBg,
+                      padding: const EdgeInsets.all(20.0),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -99,7 +100,7 @@ Future<void> showMoreInfo(BuildContext context, {
                   // Red side rect
                   Container(
                     width: 50,
-                    color: Color(0xFFDB5375),
+                    color: expRed,
                   ),
                 ],
               ),

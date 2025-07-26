@@ -42,7 +42,7 @@ class _TransactionsState extends State<Transactions> {
         ClipRRect(
           borderRadius: BorderRadius.circular(15),
 
-          child:  Slidable(
+          child: Slidable(
 
             // extra info
             startActionPane: widget.expenseOrIncome == "expense" ? ActionPane(
@@ -59,7 +59,6 @@ class _TransactionsState extends State<Transactions> {
                       date: widget.date,
                       items: widget.items,
                       money: widget.money,
-                      
                     );
                   }),
                   icon: Icons.info_outline,
@@ -107,7 +106,7 @@ class _TransactionsState extends State<Transactions> {
                     );
                   }),
                   icon: Icons.delete,
-                  backgroundColor: Color(0xFFDB5375),
+                  backgroundColor: expRed,
                 ),
               ],
             ),
@@ -124,7 +123,7 @@ class _TransactionsState extends State<Transactions> {
                 curve: Curves.easeInOut,
                 height: isExpanded ? 130 : 70,
                 decoration: BoxDecoration(
-                  color: Color(0xFF3C3C3C),
+                  color: darkGrey,
                 ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
@@ -141,7 +140,7 @@ class _TransactionsState extends State<Transactions> {
                               width: 8,
                               height: isExpanded ? 90 : 40,
                               decoration: BoxDecoration(
-                                  color: widget.expenseOrIncome == 'expense' ? Color(0xFFDB5375) : Color(0xFF6BBF59),
+                                  color: widget.expenseOrIncome == 'expense' ? expRed : fundGreen,
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(5),
                                     bottomLeft: Radius.circular(5),
@@ -162,7 +161,7 @@ class _TransactionsState extends State<Transactions> {
                                     widget.transactionName,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      color: Color(0xFFFFFFFF),
+                                      color: white,
                                       fontSize: 15,
                                       fontWeight: FontWeight.w600,
                                     ),
@@ -178,7 +177,7 @@ class _TransactionsState extends State<Transactions> {
                                 Text(
                                   "${widget.time}, ${widget.date}",
                                   style: TextStyle(
-                                    color: Color(0xFF949494),
+                                    color: mediumGrey,
                                     fontSize: 8,
                                     fontWeight: FontWeight.w400,
                                   ),
@@ -187,7 +186,6 @@ class _TransactionsState extends State<Transactions> {
                                       applyHeightToLastDescent: false,
                                     ),
                                 ),
-                            
                               ],
                             ),
                           ],
@@ -198,8 +196,7 @@ class _TransactionsState extends State<Transactions> {
                           style: TextStyle(
                             fontSize: 15,
                             fontWeight: FontWeight.w600,
-                            color:
-                                widget.expenseOrIncome == 'expense' ? Color(0xFFDB5375) : Color(0xFF6BBF59),
+                            color: widget.expenseOrIncome == 'expense' ? expRed : fundGreen,
                           )
                         )
                       ],  
