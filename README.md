@@ -2,28 +2,6 @@
 
 <!-- Remember to add "<uses-permission android:name="android.permission.INTERNET" />" this line of code to ./android/app/src/main/AndroidManifest.xml!!!! -->
 
-files parsed and sorted:
-- month.dart
-
-- balancecard.dart
-
-- transactions.dart
-- confirm_del.dart
-- more_info.dart
-
-- add_funds.dart
-- subtract_funds.dart
-- buttons.dart
-
-- carousel.dart
-- image_cache_preloader.dart
-
-to do
-
-urgent
-- reloading icon colour is to be changed.
-- finally, clean up the code. make things smoother, and, remove unnecessary things. 
-
 Future Updates:
 Functions
 - maybe add another field asking for location. like: amount, to, items, at(location)
